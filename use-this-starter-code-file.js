@@ -74,31 +74,21 @@ class Vehicle {
 
 	//optional methods to code for the Vehicle base class
 
-	drive() {
-		accelerate();
-	}
-	brake() {
-		decelerate();
-	}
+	// drive() {
+	// 	accelerate();
+	// }
+	// brake() {
+	// 	decelerate();
+	// }
 
-	autoPark() {}
+	// autoPark() {}
 
-	autoDrive() {}
+	// autoDrive() {}
 
 
 //Code the Car subclass here, i.e. class Car extends Vehicle ...
 
-class Car extends VehicleModule {
-		constructor(make, model, year, color, mileage) {
-			super(make, model, year, color, mileage)
-			this.maxPassenders = 5
-			thiss.passenger = 0
-			this.numberOfWheels = 4
-			this.maxSpeed = 165
-			this.fuel = 15;
-			this.scheduledService = false
-		}
-}
+
 
 
 
@@ -110,6 +100,67 @@ class Car extends VehicleModule {
 
 
 //This is an instance of the Vehicle class. You can use it to test your code for the Vehicle class.
+
+
+
+//You can use the same instance "v" of the Vehicle class and dot notation to add properties of the Car class to it, but you should also create at least one totally new instance with just the Car class and test it out with Vehicle and Car methods (such as with v.make shown above).
+
+
+//Create at least two new instances of the Car class and test them here:
+
+
+
+
+
+//Bonus (optional of course)
+
+//Code the Truck subclass of Vehicle here
+
+//this includes the vehicle class as a module
+      
+
+class Car extends Vehicle {
+    constructor(make, model, year, color, mileage) {
+        super(make, model, year, color, mileage);
+        this.maxPassengers = 5;
+        this.passenger = 0;
+        this.numberOfWheels = 4;
+        this.maxSpeed = 160;
+        this.fuel = 10;
+        this.scheduleService = false;
+    }
+
+    checkService() {
+        if (this.mileage > 30000) {            
+            this.scheduleService = true
+            return this.scheduleService;                       
+        }
+    }
+
+    start() {
+        if (this.fuel > 0) {            
+            console.log("engine has started.");
+            return this.started = true
+        } else {
+            console.log("no fuel");
+            return this.started = false;
+        }
+    }
+
+    loadPassenger(num) {
+        if (this.passenger < this.maxPassengers) {
+            if ((num + this.passenger) <= this.maxPassengers) {
+                this.passenger = num;
+                return this.passenger;               
+            } else {
+                console.log(this.model + " " + this.make + " not have enough space to take all passengers.");
+
+            }
+        } else {
+            console.log(this.model + " " + this.make + " is full");
+        }
+    }
+}
 
 let myCar = new Car('mercury', 'rad_sedan', '2002', 'white', 50000)
 
@@ -123,22 +174,10 @@ myCar.start()
 myCar.accelerate()
 console.log(myCar.fuel)
 
-//You can use the same instance "v" of the Vehicle class and dot notation to add properties of the Car class to it, but you should also create at least one totally new instance with just the Car class and test it out with Vehicle and Car methods (such as with v.make shown above).
-
-
-//Create at least two new instances of the Car class and test them here:
+let lambo = new Car("")
 
 
 
-
-
-
-
-
-
-
-
-
-//Bonus (optional of course)
-
-//Code the Truck subclass of Vehicle here
+//this shows how to call from this module...
+let v = new Vehicle("Mercury", "Sedan", "1965", "color", "mileage");
+console.log(v.make)

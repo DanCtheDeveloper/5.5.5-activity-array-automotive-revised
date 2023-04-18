@@ -1,7 +1,8 @@
 //this includes the vehicle class as a module
-const VehicleModule = require("./vehicle").Vehicle
+const VehicleModule = require("./vehicle")
+      
 
-class Car extends VehicleModule {
+class Car extends VehicleModule.Vehicle {
     constructor(make, model, year, color, mileage) {
         super(make, model, year, color, mileage);
         this.maxPassengers = 5;
@@ -18,7 +19,7 @@ class Car extends VehicleModule {
             return this.scheduleService;                       
         }
     }
-    
+
     start() {
         if (this.fuel > 0) {            
             console.log("engine has started.");
@@ -45,6 +46,13 @@ class Car extends VehicleModule {
 
 
 }
+
+let lambo = new Car("")
+
+lambo.start()
+VehicleModule.start()
+VehicleModule.loadPassengers(5)
+VehicleModule.accelerate
 
 
 //this shows how to call from this module...
